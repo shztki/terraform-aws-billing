@@ -1,11 +1,13 @@
 # terraform-aws-billing
 
-* Billing alarm を作成する。
+* 複数のしきい値で Billing alarm を作成する。
   * `billing_alarm_actions_arn` には `us-east-1` で作成した `TopicArn` を指定する必要があるので注意。
+  * しきい値の単位は `US$` です。
 
 ## Usage:
 ```
 module "sns_myself" {
+  region             = "us-east-1"
   source             = "git::https://github.com/shztki/terraform-aws-snsemail.git?ref=1.0.0"
   topic_name         = "notification-myself"
   topic_display_name = "notification-myself"
